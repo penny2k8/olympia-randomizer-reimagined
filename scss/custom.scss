@@ -1,0 +1,12 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+/* ------- customize primary button color -------- */ 
+
+$custom-colors: (
+    "olympia": #084089
+);
+
+$theme-colors: map-merge($theme-colors , $custom-colors);
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
