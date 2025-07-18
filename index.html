@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.olympia.css">
+        <link rel="stylesheet" href="css/style.css"> 
+        <script src="node_modules/rng-js/rng.js"></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <div class="container-float">
+      <br>
+      <br>
+      <br>
+      <div class="row" style="text-align: center;">
+        <header><h1>Olympia Randomizer Reimagined</h1></header>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+          <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
+            <div class="card-header bg-olympia text-light"><h3>S1</h3></div>
+            <div class="card-body">
+              <label id="S1"></label>
+              <div class="spinner-border" id="spin1" style="display: none;"></div>
+            </div>
+          </div> 
+        </div>
+        <div class="col-md-2">
+          <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
+            <div class="card-header bg-olympia text-light"><h3>S2</h3></div>
+            <div class="card-body">
+              <label id="S2"></label>
+              <div class="spinner-border" id="spin2" style="display: none;"></div>
+            </div>
+          </div> 
+        </div>
+        <div class="col-md-2">
+          <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
+            <div class="card-header bg-olympia text-light"><h3>S3</h3></div>
+            <div class="card-body">
+              <label id="S3"></label>
+              <div class="spinner-border" id="spin3" style="display: none;"></div>
+            </div>
+          </div> 
+        </div>
+        <div class="col-md-2">
+          <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
+            <div class="card-header bg-olympia text-light"><h3>S4</h3></div>
+            <div class="card-body">
+              <label id="S4"></label>
+              <div class="spinner-border" id="spin4" style="display: none;"></div>
+            </div>
+          </div> 
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="text-align: center;"><button class="btn btn-success btn-lg" id="submit">Chọn vị trí đứng</button></div>
+        <div class="col-md-4"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="text-align: center;"><input type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" id="edit" value="Chỉnh sửa danh sách thí sinh"></input></div>
+        <div class="col-md-4"></div>
+      </div>
+      <div class="modal fade" id="editModal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="color: black;">
+            <div class="modal-header">
+                <h5 class="modal-title fs-5" id="staticBackdropLabel"><b>Chỉnh sửa danh sách thí sinh</b></h5>
+              </div>
+            <div class="modal-body text-center">
+              Nhập tên thí sinh vào các ô phía dưới
+              <br>
+              Sau khi hoàn thành, ấn nút "Đóng"
+              <br>
+              <br>
+              <input type="text" class="form-control" id="nameS1" placeholder="Thí sinh 1">
+              <br>
+              <input type="text" class="form-control" id="nameS2" placeholder="Thí sinh 2">
+              <br>
+              <input type="text" class="form-control" id="nameS3" placeholder="Thí sinh 3">
+              <br>
+              <input type="text" class="form-control" id="nameS4" placeholder="Thí sinh 4">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+const birthday = new Date("2008-12-19");
+const now = new Date(); 
+var rng = new RNG((now.getTime() * birthday.getTime()));
+const submit = document.getElementById("submit");
+
+submit.onclick = function() 
+{
+    let array = [1, 2, 3, 4];
+    for (let i = 3; i > 1; i--) {
+        let j = rng.random(0, i);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    let i = rng.random(0, 3)
+    if (i == 3)
+    {
+        let j = rng.random(0, 3);
+        [array[0], array[j]] = [array[j], array[0]];
+    }
+    for (let i = 0; i < 4; i++)
+    {
+        let n = array[i];
+        document.getElementById("S"+(i+1)).innerHTML=document.getElementById("nameS"+n).value;
+    }
+}
+  </script>
+</html>
