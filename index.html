@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.olympia.css">
-        <link rel="stylesheet" href="css/style.css"> 
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
         <script src="rng-js/rng.js"></script>
         <script src="jquery/dist/jquery.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
@@ -17,13 +20,12 @@
       <br>
       <br>
       <div class="row" style="text-align: center;">
-        <header><h1>Olympia Randomizer Reimagined</h1></header>
+        <header><h1 class="montserrat-semibold">Olympia Randomizer Reimagined</h1></header>
       </div>
       <br>
       <br>
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
             <div class="card-header bg-olympia text-light"><h3>S1</h3></div>
             <div class="card-body">
@@ -32,7 +34,7 @@
             </div>
           </div> 
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
             <div class="card-header bg-olympia text-light"><h3>S2</h3></div>
             <div class="card-body">
@@ -41,7 +43,7 @@
             </div>
           </div> 
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
             <div class="card-header bg-olympia text-light"><h3>S3</h3></div>
             <div class="card-body">
@@ -50,7 +52,7 @@
             </div>
           </div> 
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="card border border-2 border-olympia" id="s1card" style="text-align: center;">
             <div class="card-header bg-olympia text-light"><h3>S4</h3></div>
             <div class="card-body">
@@ -59,22 +61,34 @@
             </div>
           </div> 
         </div>
-        <div class="col-md-2"></div>
       </div>
       <br>
       <br>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" style="text-align: center;"><button class="btn btn-success btn-lg" id="submit">Chọn vị trí đứng</button></div>
-        <div class="col-md-4"></div>
-      </div>
+      <div class="button">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4" style="text-align: center;"><button class="btn btn-olympia btn-lg montserrat-semibold" id="submit">Chọn vị trí đứng</button></div>
+          <div class="col-md-4"></div>
+        </div>
       <br>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" style="text-align: center;"><input type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" id="edit" value="Chỉnh sửa danh sách thí sinh"></input></div>
-        <div class="col-md-4"></div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4" style="text-align: center;"><input type="button" class="btn btn-outline-olympia montserrat-semibold" data-bs-toggle="modal" data-bs-target="#editModal" id="edit" value="Chỉnh sửa danh sách thí sinh"></input></div>
+          <div class="col-md-4"></div>
+        </div>
       </div>
-      <div class="modal fade" id="editModal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+      <div class="container fixed-bottom" style="font-size: 16px;"> 
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-5 my-4 row">
+          <div class="col-md-4 align-items-center"> 
+              <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Minh Le</span> 
+          </div> 
+          <div class="col-md-4 d-flex align-items-center"> 
+              <span class="mb-3 mb-md-0 text-body-secondary">Inspired by the original <a class="link-olympia link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://olympia-randomizer.glitch.me/" target="_blank"> Olympia Randomizer</a></span> 
+          </div> 
+          
+        </footer> 
+      </div>
+      <div class="modal fade" id="editModal" data-bs-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content" style="color: black;">
             <div class="modal-header">
@@ -83,19 +97,19 @@
             <div class="modal-body text-center">
               Nhập tên thí sinh vào các ô phía dưới
               <br>
-              Sau khi hoàn thành, ấn nút "Đóng"
+              Sau khi hoàn thành, ấn nút "Lưu"
               <br>
               <br>
-              <input type="text" class="form-control" id="nameS1" placeholder="Thí sinh 1">
+              <input type="text" class="form-control box border-2" id="nameS1" placeholder="Thí sinh 1">
               <br>
-              <input type="text" class="form-control" id="nameS2" placeholder="Thí sinh 2">
+              <input type="text" class="form-control box border-2" id="nameS2" placeholder="Thí sinh 2">
               <br>
-              <input type="text" class="form-control" id="nameS3" placeholder="Thí sinh 3">
+              <input type="text" class="form-control box border-2" id="nameS3" placeholder="Thí sinh 3">
               <br>
-              <input type="text" class="form-control" id="nameS4" placeholder="Thí sinh 4">
+              <input type="text" class="form-control box border-2" id="nameS4" placeholder="Thí sinh 4">
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-outline-olympia" data-bs-dismiss="modal">Lưu</button>
             </div>
           </div>
         </div>
