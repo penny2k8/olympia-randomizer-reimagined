@@ -19,7 +19,6 @@ async function load () {
  $("#S4").animate({opacity: 1}, 200);
  await timer(200);
  submit.disabled = false;
- edit.disabled = false;
  copy.disabled = false;
 $("#nameS1").prop("disabled", false);
  $("#nameS2").prop("disabled", false);
@@ -28,7 +27,6 @@ $("#nameS1").prop("disabled", false);
   }
 async function unload() {
 submit.disabled = true;
-edit.disabled = true;
 copy.disabled = true;
  $("#nameS1").prop("disabled", true);
  $("#nameS2").prop("disabled", true);
